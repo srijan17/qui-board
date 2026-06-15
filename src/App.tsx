@@ -1,9 +1,5 @@
-import { useEffect, useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
-import QuizBoard from "./QuizBoard";
-import QuestionModal from "./QuestionModal";
-import ResetConfirmationDialog from "./ResetConfirmationDialog";
-import quizData from "./questions.json";
+import { useState } from "react";
+import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import LoadQuiz from "./LoadQuiz";
 
 export default function App() {
@@ -14,13 +10,28 @@ export default function App() {
   }
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "background.default", py: 3 }}>
+    <Box sx={{ minHeight: "100vh", py: 3, px: 2 }}>
+      <Paper
+        elevation={0}
+        sx={{
+          maxWidth: 820,
+          mx: "auto",
+          mb: 2,
+          p: 2,
+          border: "2px dashed",
+          borderColor: "secondary.main",
+          bgcolor: "rgba(255,255,255,0.75)",
+        }}
+      >
+        <Typography variant="h5" sx={{ textAlign: "center", color: "primary.main", mb: 1 }}>
+          Quiz Controls
+        </Typography>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} justifyContent="center">
+          <Button variant="contained" color="secondary" onClick={() => setQuizKey("something")}>Start Quiz</Button>
+          <Button variant="outlined" color="primary" onClick={handleReset}>Reset Quiz</Button>
+        </Stack>
+      </Paper>
 
-     {/* mui collapsible for admin operations. load quiz , quiz source, reset quiz */}
-
-     <button onClick={()=>{setQuizKey("something")}}>LoadQuiz</button>
-     <button onClick={()=>{handleReset()}}>reset</button>
-    
       { quizKey && <LoadQuiz quizKey={quizKey} />}
       
     </Box>

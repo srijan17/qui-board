@@ -226,6 +226,8 @@ export default function QuestionModal({
           minHeight: "80vh",
           maxHeight: "90vh",
           m: 2,
+          border: "3px solid rgba(94,96,206,0.25)",
+          boxShadow: "0 16px 36px rgba(0,0,0,0.2)",
         },
       }}
     >
@@ -244,6 +246,7 @@ export default function QuestionModal({
             bgcolor: "primary.main",
             color: "white",
             pb: 1,
+            borderBottom: "2px dashed rgba(255,255,255,0.45)",
           }}
         >
           <Typography
@@ -264,6 +267,7 @@ export default function QuestionModal({
               color: "white",
               fontWeight: 700,
               fontSize: 16,
+              borderRadius: "999px",
             }}
           />
         </DialogTitle>
@@ -287,6 +291,7 @@ export default function QuestionModal({
             px: 3,
             pb: 2,
             gap: 1,
+            borderTop: "1px dashed rgba(94,96,206,0.22)",
           }}
         >
           <Button
