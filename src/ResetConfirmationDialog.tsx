@@ -1,0 +1,33 @@
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
+
+interface Props {
+  open: boolean;
+  onConfirm: () => void;
+  onCancel: () => void;
+}
+
+export default function ResetConfirmationDialog({ open, onConfirm, onCancel }: Props) {
+  return (
+    <Dialog open={open} onClose={onCancel} maxWidth="xs" fullWidth>
+      <DialogTitle>Reset the board?</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          This will clear all answered questions. This cannot be undone.
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onCancel}>Cancel</Button>
+        <Button variant="contained" color="error" onClick={onConfirm}>
+          Reset
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}

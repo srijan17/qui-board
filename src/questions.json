@@ -1,0 +1,70 @@
+{
+  "categories": [
+    {
+      "id": "movies",
+      "title": "Movies",
+      "questions": [
+        { "id": "movies-100", "points": 100, "question": "Who directed Jurassic Park?",  "tag": "Challenger" },
+        { "id": "movies-200", "points": 200,"type":"text", "question": "What movie features the line 'You can't handle the truth!'?What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'",  "tag": "Challenger" },
+        { "id": "movies-300", "points": 300,"type":"image" , "imageUrl":"/logo192.png", "question": "Which film won the first Academy Award for Best Picture?" ,  "tag": "Challenger"},
+        { "id": "movies-400", "points": 400, "type":"thematrix", "options":["/logo192.png","/logo512.png","/logo192.png","/logo512.png"], "question": "What 1999 film features a character who 'sees dead people'?",  "tag": "Challenger" },
+        { "id": "movies-500", "points": 500, "question": "Name the director of 2001: A Space Odyssey." ,  "tag": "Challenger"}
+      ]
+    },
+    {
+      "id": "science",
+      "title": "Science",
+      "questions": [
+        { "id": "science-100", "points": 100, "question": "What is the chemical symbol for water?" ,  "tag": "TequilaTile"},
+        { "id": "science-200", "points": 200, "question": "How many bones are in the adult human body?" ,"tag": "TequilaTile"},
+        { "id": "science-300", "points": 300, "question": "What planet is known as the Red Planet?" ,"tag": "TequilaTile"},
+        { "id": "science-400", "points": 400, "question": "What is the speed of light in a vacuum (approximately)?","tag": "TequilaTile" },
+        { "id": "science-500", "points": 500, "question": "What is the powerhouse of the cell?" ,"tag": "TequilaTile"}
+      ]
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "questions": [
+        { "id": "history-100", "points": 100, "question": "In which year did World War II end?" },
+        { "id": "history-200", "points": 200, "question": "Who was the first President of the United States?" },
+        { "id": "history-300", "points": 300, "question": "The Great Wall of China was primarily built to protect against which group?" },
+        { "id": "history-400", "points": 400, "question": "Which empire was ruled by Genghis Khan?" },
+        { "id": "history-500", "points": 500, "question": "In what year did the Berlin Wall fall?" }
+      ]
+    },
+    {
+      "id": "pop-culture",
+      "title": "Pop Culture",
+      "questions": [
+        { "id": "pop-culture-100", "points": 100, "question": "Which band sang 'Bohemian Rhapsody'?" },
+        { "id": "pop-culture-200", "points": 200, "question": "What is the name of the fictional kingdom in Frozen?" },
+        { "id": "pop-culture-300", "points": 300, "question": "Which TV show features a chemistry teacher who becomes a drug lord?" },
+        { "id": "pop-culture-400", "points": 400, "question": "How many seasons does Game of Thrones have?" },
+        { "id": "pop-culture-500", "points": 500, "question": "What year did the first iPhone launch?" }
+      ]
+    },
+    {
+      "id": "food",
+      "title": "Food & Drink",
+      "questions": [
+        { "id": "food-100", "points": 100, "question": "What country does sushi originate from?" },
+        { "id": "food-200", "points": 200, "question": "What is the main ingredient in guacamole?" },
+        { "id": "food-300", "points": 300, "question": "Which cheese is traditionally used in a Margherita pizza?" },
+        { "id": "food-400", "points": 400, "question": "What is the national dish of Spain?" },
+        { "id": "food-500", "points": 500, "question": "Which grain is used to make most Japanese sake?" }
+      ]
+    },
+    {
+      "id": "geography",
+      "title": "Geography",
+      "questions": [
+        { "id": "geography-100", "points": 100, "question": "What is the capital of Australia?" },
+        { "id": "geography-200", "points": 200, "question": "Which country has the most natural lakes?" },
+        { "id": "geography-300", "points": 300, "question": "What is the longest river in the world?" },
+        { "id": "geography-400", "points": 400, "question": "Which country contains the most of the Amazon rainforest?" },
+        { "id": "geography-500", "points": 500, "question": "What is the smallest country in the world by area?" }
+      ]
+    }
+  ]
+}

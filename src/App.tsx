@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
+import QuizBoard from "./QuizBoard";
+import QuestionModal from "./QuestionModal";
+import ResetConfirmationDialog from "./ResetConfirmationDialog";
+import quizData from "./questions.json";
+import LoadQuiz from "./LoadQuiz";
 
-function App() {
+export default function App() {
+  const [quizKey, setQuizKey] = useState<string | null>(null);
+
+  function handleReset() {
+    setQuizKey(null);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ minHeight: "100vh", bgcolor: "background.default", py: 3 }}>
+
+     {/* mui collapsible for admin operations. load quiz , quiz source, reset quiz */}
+
+     <button onClick={()=>{setQuizKey("something")}}>LoadQuiz</button>
+     <button onClick={()=>{handleReset()}}>reset</button>
+    
+      { quizKey && <LoadQuiz quizKey={quizKey} />}
+      
+    </Box>
   );
 }
-
-export default App;
