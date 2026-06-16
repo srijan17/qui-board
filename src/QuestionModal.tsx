@@ -72,6 +72,24 @@ export default function QuestionModal({
     },
   };
 
+  const parseQuestionText = (text: string) => {
+    const parts = text.split("<br>");
+    return parts.map((part, index) => (
+      <Typography
+        key={index}
+        variant="h5"
+        sx={{
+          textAlign: "center",
+          fontWeight: 500,
+          width: "100%",
+          wordBreak: "break-word",
+          mb: index < parts.length - 1 ? 2 : 0,
+        }}
+      >
+        {part}
+      </Typography>
+    ));
+  }
   const banner =
     question.tag &&
     announcementConfig[
@@ -147,7 +165,7 @@ export default function QuestionModal({
           />
         )}
         <Typography variant="body1" sx={{ color: "text.secondary" }}>
-          {question.options?.[0] ?? question.question}
+          {question.options?.[0] ?? parseQuestionText(question.question)}
         </Typography>
       </Box>
     ),
@@ -170,7 +188,7 @@ export default function QuestionModal({
           />
         )}
         <Typography variant="h5" sx={{ textAlign: "center", fontWeight: 500, wordBreak: "break-word" }}>
-          {question.question}
+          {parseQuestionText(question.question)}
         </Typography>
       </Box>
     ),
@@ -186,7 +204,7 @@ export default function QuestionModal({
           </audio>
         </Box>
         <Typography variant="body1" sx={{ color: "text.secondary" }}>
-          {question.question}
+          {parseQuestionText(question.question)}
         </Typography>
       </Box>
     ),
@@ -209,7 +227,7 @@ export default function QuestionModal({
           wordBreak: "break-word",
         }}
       >
-        {question.question}
+        {parseQuestionText(question.question)}
       </Typography>
     );
   };

@@ -37,7 +37,7 @@ export default function QuestionCard({ question, answered, onClick }: Props) {
       <CardActionArea
         disabled={answered}
         onClick={onClick}
-        sx={{ cursor: answered ? "default" : "pointer" }}
+        sx={{ cursor: answered ? "default" : "pointer", minWidth: "15vw", minHeight: "10vh" }}
       >
         <CardContent sx={{ textAlign: "center", py: 2.2 }}>
           <Typography
@@ -49,7 +49,7 @@ export default function QuestionCard({ question, answered, onClick }: Props) {
               textShadow: answered ? "none" : "0 1px 0 rgba(0,0,0,0.18)",
             }}
           >
-            {answered ? "—" : `$${question.points}`}
+            {answered ? "—" : `${question.points}`}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -25,6 +25,10 @@ export interface Category {
   questions: Question[];
 }
 
+interface QuizData {
+  categories: Category[];
+}
+
 const STORAGE_KEY = "quiz-board-progress";
 
 function loadAnswered(quizKey: string): string[] {
@@ -36,7 +40,7 @@ function loadAnswered(quizKey: string): string[] {
   }
 }
 
-export default function LoadQuiz(props:{quizKey:string}) {
+export default function LoadQuiz(props:{quizKey:string, questionBank: QuizData}) {
   const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [answeredQuestionIds, setAnsweredQuestionIds] = useState<string[]>(() => loadAnswered(props.quizKey));
@@ -68,7 +72,7 @@ export default function LoadQuiz(props:{quizKey:string}) {
     setResetOpen(false);
   }
 
-  const categories = quizData.categories as Category[];
+  const categories = props.questionBank?.categories ?? (quizData.categories as Category[]);
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.default", py: 3 }}>
