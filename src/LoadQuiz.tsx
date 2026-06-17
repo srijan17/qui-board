@@ -17,6 +17,8 @@ export interface Question {
   tag?: string;
   options?: string[];
   optionsp?: string[];
+  correctAnswerURL?: string;
+  answer?: string;
 }
 
 export interface Category {

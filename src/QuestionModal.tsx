@@ -31,11 +31,13 @@ export default function QuestionModal({
     question.tag === "TequilaTile";
 
   const [matrixIndex, setMatrixIndex] = useState(0);
+  const [showAnswerImage, setShowAnswerImage] = useState(false);
   const [showAnnouncement, setShowAnnouncement] =
     useState(isSpecialTile);
 
   useEffect(() => {
     setMatrixIndex(0);
+    setShowAnswerImage(false);
     setShowAnnouncement(
       question.tag === "Challenger" ||
       question.tag === "TequilaTile"
@@ -301,7 +303,36 @@ export default function QuestionModal({
             justifyContent: "center",
           }}
         >
-          {renderQuestionContent()}
+          <Box sx={{ width: "100%" }}>
+            {renderQuestionContent()}
+
+            {showAnswerImage && (question.correctAnswerURL || question.answer) && (
+              <Box sx={{ mt: 3, textAlign: "center" }}>
+                <Typography variant="subtitle1" sx={{ mb: 1.5, fontWeight: 700 }}>
+                  Correct Answer
+                </Typography>
+                {question.answer && (
+                  <Typography variant="h6" sx={{ color: "text.secondary", mb: 2 }}>
+                    {question.answer}
+                  </Typography>
+                )}
+                {question.correctAnswerURL&&(<Box
+                  component="img"
+                  src={question.correctAnswerURL}
+                  alt="Correct answer"
+                  sx={{
+                    maxWidth: "100%",
+                    maxHeight: "32vh",
+                    objectFit: "contain",
+                    borderRadius: 2,
+                    border: "2px dashed rgba(94,96,206,0.35)",
+                    bgcolor: "rgba(255,255,255,0.65)",
+                    p: 1,
+                  }}
+                />)}
+              </Box>
+            )}
+          </Box>
         </DialogContent>
 
         <DialogActions
@@ -312,6 +343,16 @@ export default function QuestionModal({
             borderTop: "1px dashed rgba(94,96,206,0.22)",
           }}
         >
+          {(question.correctAnswerURL|| question.answer) && (
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={() => setShowAnswerImage((prev) => !prev)}
+            >
+              {showAnswerImage ? "Hide Answer" : "Show Answer"}
+            </Button>
+          )}
+
           <Button
             variant="outlined"
             onClick={onClose}
