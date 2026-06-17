@@ -19,9 +19,9 @@ export default function QuestionCard({ question, answered, onClick }: Props) {
         minWidth: "15vw",
         minHeight: "10vh",
         opacity: answered ? 0.55 : 1,
-        bgcolor: answered ? "#d8dde4" : "secondary.main",
+        bgcolor: answered ? "#5c5d5f" : "white",
         border: "2px solid",
-        borderColor: answered ? "#c3c9d2" : "rgba(255,255,255,0.65)",
+        borderColor: answered ? "#5c5d5f" : "primary.main",
         transition: "transform 0.15s, box-shadow 0.15s, filter 0.15s",
         transform: answered ? "rotate(0deg)" : "rotate(-0.4deg)",
         "&:hover": answered
@@ -44,7 +44,7 @@ export default function QuestionCard({ question, answered, onClick }: Props) {
             variant="h5"
             sx={{
               fontWeight: 800,
-              color: answered ? "text.disabled" : "white",
+              color: answered ? "text.disabled" : "primary.main",
               letterSpacing: 0.8,
               textShadow: answered ? "none" : "0 1px 0 rgba(0,0,0,0.18)",
             }}

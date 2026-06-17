@@ -75,15 +75,15 @@ export default function LoadQuiz(props:{quizKey:string, questionBank: QuizData})
   const categories = props.questionBank?.categories ?? (quizData.categories as Category[]);
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "background.default", py: 3 }}>
+    <Box sx={{ minHeight: "100vh", py: 3 }}>
       <Box sx={{ textAlign: "center", mb: 3 }}>
-        <Typography variant="h3" component="h1" sx={{ fontWeight: 700, color: "primary.main" }}>
+        <Typography variant="h3" component="h1" sx={{ fontWeight: 700, color: "white", backgroundColor: "primary.main", display: "block", px: 0, py: 1, borderRadius: 2  }}>
          Night
         </Typography>
         <Button
           variant="outlined"
-          color="secondary"
-          sx={{ mt: 1 }}
+          color="primary"
+          sx={{ mt: 1 , backgroundColor:'white' }}
           onClick={() => setResetOpen(true)}
         >
           Reset Board

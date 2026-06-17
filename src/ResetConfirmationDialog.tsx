@@ -27,7 +27,7 @@ export default function ResetConfirmationDialog({ open, onConfirm, onCancel }: P
         },
       }}
     >
-      <DialogTitle sx={{ fontFamily: "Comic Sans MS", color: "primary.main" }}>
+      <DialogTitle sx={{ fontFamily: "Helvetica", color: "primary.main" }}>
         Reset the board?
       </DialogTitle>
       <DialogContent>

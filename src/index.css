@@ -2,14 +2,18 @@
 
 body {
   margin: 0;
-  font-family:"Comic Sans MS";
+  font-family:"Helvetica";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background:
+  background-image:
     radial-gradient(circle at 12% 18%, #ffe8b6 0, transparent 26%),
     radial-gradient(circle at 86% 8%, #cdeafe 0, transparent 24%),
     radial-gradient(circle at 84% 88%, #ffd2df 0, transparent 26%),
-    #f8f9fa;
+    url("/background.jpg");
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  background-size: contain;
+  background-color: #f8f9fa;
 }
 
 code {
