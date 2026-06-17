@@ -25,10 +25,15 @@ export default function QuizBoard({ categories, answeredQuestionIds, onQuestionS
       sx={{
         display: "flex",
         overflowX: "auto",
-        gap: 1,
+        gap: 1.5,
         px: 2,
+        py: 1.5,
         pb: 2,
         justifyContent: { xs: "flex-start", md: "center" },
+        bgcolor: "rgba(255,255,255,0.55)",
+        borderRadius: 3,
+        border: "2px dashed",
+        borderColor: "rgba(94,96,206,0.35)",
       }}
     >
       {categories.map((category) => (

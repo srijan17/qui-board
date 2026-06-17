@@ -4,9 +4,9 @@
       "id": "movies",
       "title": "Movies",
       "questions": [
-        { "id": "movies-100", "points": 100, "question": "Who directed Jurassic Park?",  "tag": "Challenger" },
-        { "id": "movies-200", "points": 200,"type":"text", "question": "What movie features the line 'You can't handle the truth!'?What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'",  "tag": "Challenger" },
-        { "id": "movies-300", "points": 300,"type":"image" , "imageUrl":"/logo192.png", "question": "Which film won the first Academy Award for Best Picture?" ,  "tag": "Challenger"},
+        { "id": "movies-100", "points": 100, "question": "Who directed Jurassic Park?",  "tag": "Challenger","answer": "Steven Spielberg" },
+        { "id": "movies-200", "points": 200,"type":"text", "question": "What movie features the line 'You can't handle the truth!'?What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'What movie features the line 'You can't handle the truth!'",  "tag": "Challenger","correctAnswerURL": "/logo192.png" },
+        { "id": "movies-300", "points": 300,"type":"image" , "imageUrl":"/logo192.png", "question": "Which film won the first Academy Award for Best Picture?" ,  "tag": "Challenger","correctAnswerURL": "/logo192.png"},
         { "id": "movies-400", "points": 400, "type":"thematrix", "options":["/logo192.png","/logo512.png","/logo192.png","/logo512.png"], "question": "What 1999 film features a character who 'sees dead people'?",  "tag": "Challenger" },
         { "id": "movies-500", "points": 500, "question": "Name the director of 2001: A Space Odyssey." ,  "tag": "Challenger"}
       ]

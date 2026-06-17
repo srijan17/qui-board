@@ -1,10 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Short+Stack&family=Nunito:wght@500;700;800&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:"Helvetica";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(circle at 12% 18%, #ffe8b6 0, transparent 26%),
+    radial-gradient(circle at 86% 8%, #cdeafe 0, transparent 24%),
+    radial-gradient(circle at 84% 88%, #ffd2df 0, transparent 26%),
+    url("/background.jpg");
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  background-size: contain;
+  background-color: #f8f9fa;
 }
 
 code {

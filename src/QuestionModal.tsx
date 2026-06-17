@@ -31,11 +31,13 @@ export default function QuestionModal({
     question.tag === "TequilaTile";
 
   const [matrixIndex, setMatrixIndex] = useState(0);
+  const [showAnswerImage, setShowAnswerImage] = useState(false);
   const [showAnnouncement, setShowAnnouncement] =
     useState(isSpecialTile);
 
   useEffect(() => {
     setMatrixIndex(0);
+    setShowAnswerImage(false);
     setShowAnnouncement(
       question.tag === "Challenger" ||
       question.tag === "TequilaTile"
@@ -72,6 +74,24 @@ export default function QuestionModal({
     },
   };
 
+  const parseQuestionText = (text: string) => {
+    const parts = text.split("<br>");
+    return parts.map((part, index) => (
+      <Typography
+        key={index}
+        variant="h5"
+        sx={{
+          textAlign: "center",
+          fontWeight: 500,
+          width: "100%",
+          wordBreak: "break-word",
+          mb: index < parts.length - 1 ? 2 : 0,
+        }}
+      >
+        {part}
+      </Typography>
+    ));
+  }
   const banner =
     question.tag &&
     announcementConfig[
@@ -147,7 +167,7 @@ export default function QuestionModal({
           />
         )}
         <Typography variant="body1" sx={{ color: "text.secondary" }}>
-          {question.options?.[0] ?? question.question}
+          {question.options?.[0] ?? parseQuestionText(question.question)}
         </Typography>
       </Box>
     ),
@@ -170,7 +190,7 @@ export default function QuestionModal({
           />
         )}
         <Typography variant="h5" sx={{ textAlign: "center", fontWeight: 500, wordBreak: "break-word" }}>
-          {question.question}
+          {parseQuestionText(question.question)}
         </Typography>
       </Box>
     ),
@@ -186,7 +206,7 @@ export default function QuestionModal({
           </audio>
         </Box>
         <Typography variant="body1" sx={{ color: "text.secondary" }}>
-          {question.question}
+          {parseQuestionText(question.question)}
         </Typography>
       </Box>
     ),
@@ -209,7 +229,7 @@ export default function QuestionModal({
           wordBreak: "break-word",
         }}
       >
-        {question.question}
+        {parseQuestionText(question.question)}
       </Typography>
     );
   };
@@ -226,6 +246,8 @@ export default function QuestionModal({
           minHeight: "80vh",
           maxHeight: "90vh",
           m: 2,
+          border: "3px solid rgba(94,96,206,0.25)",
+          boxShadow: "0 16px 36px rgba(0,0,0,0.2)",
         },
       }}
     >
@@ -244,6 +266,7 @@ export default function QuestionModal({
             bgcolor: "primary.main",
             color: "white",
             pb: 1,
+            borderBottom: "2px dashed rgba(255,255,255,0.45)",
           }}
         >
           <Typography
@@ -264,6 +287,7 @@ export default function QuestionModal({
               color: "white",
               fontWeight: 700,
               fontSize: 16,
+              borderRadius: "999px",
             }}
           />
         </DialogTitle>
@@ -279,7 +303,36 @@ export default function QuestionModal({
             justifyContent: "center",
           }}
         >
-          {renderQuestionContent()}
+          <Box sx={{ width: "100%" }}>
+            {renderQuestionContent()}
+
+            {showAnswerImage && (question.correctAnswerURL || question.answer) && (
+              <Box sx={{ mt: 3, textAlign: "center" }}>
+                <Typography variant="subtitle1" sx={{ mb: 1.5, fontWeight: 700 }}>
+                  Correct Answer
+                </Typography>
+                {question.answer && (
+                  <Typography variant="h6" sx={{ color: "text.secondary", mb: 2 }}>
+                    {question.answer}
+                  </Typography>
+                )}
+                {question.correctAnswerURL&&(<Box
+                  component="img"
+                  src={question.correctAnswerURL}
+                  alt="Correct answer"
+                  sx={{
+                    maxWidth: "100%",
+                    maxHeight: "32vh",
+                    objectFit: "contain",
+                    borderRadius: 2,
+                    border: "2px dashed rgba(94,96,206,0.35)",
+                    bgcolor: "rgba(255,255,255,0.65)",
+                    p: 1,
+                  }}
+                />)}
+              </Box>
+            )}
+          </Box>
         </DialogContent>
 
         <DialogActions
@@ -287,8 +340,19 @@ export default function QuestionModal({
             px: 3,
             pb: 2,
             gap: 1,
+            borderTop: "1px dashed rgba(94,96,206,0.22)",
           }}
         >
+          {(question.correctAnswerURL|| question.answer) && (
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={() => setShowAnswerImage((prev) => !prev)}
+            >
+              {showAnswerImage ? "Hide Answer" : "Show Answer"}
+            </Button>
+          )}
+
           <Button
             variant="outlined"
             onClick={onClose}
