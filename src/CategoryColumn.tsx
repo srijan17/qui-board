@@ -21,35 +21,47 @@ interface Props {
 
 export default function CategoryColumn({ category, answeredQuestionIds, onQuestionSelected }: Props) {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 1.2, minWidth: 150 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: { xs: 0.6, sm: 0.7, md: 0.8 },
+        flex: 1,
+        minWidth: 0,
+        height: "100%",
+      }}
+    >
       <Box
         sx={{
           bgcolor: "primary.main",
           color: "primary.contrastText",
-          p: 1.5,
+          p: { xs: 0.8, sm: 1, md: 1.2 },
           borderRadius: "16px 10px 16px 12px",
           textAlign: "center",
-          minHeight: 68,
+          flexShrink: 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           border: "2px solid rgba(255,255,255,0.5)",
           transform: "rotate(-0.5deg)",
+          minHeight: { xs: 50, sm: 60, md: 68 },
         }}
       >
-        <Typography variant="subtitle1" sx={{ fontWeight: 800, lineHeight: 1.2, fontSize: 18 }}>
+        <Typography variant="subtitle1" sx={{ fontWeight: 800, lineHeight: 1.2, fontSize: { xs: 14, sm: 16, md: 18 } }}>
           {category.title}
         </Typography>
       </Box>
 
-      {category.questions.map((question) => (
-        <QuestionCard
-          key={question.id}
-          question={question}
-          answered={answeredQuestionIds.includes(question.id)}
-          onClick={() => onQuestionSelected(question, category.title)}
-        />
-      ))}
+      <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 0.6, sm: 0.7, md: 0.8 }, flex: 1, minHeight: 0 }}>
+        {category.questions.map((question) => (
+          <QuestionCard
+            key={question.id}
+            question={question}
+            answered={answeredQuestionIds.includes(question.id)}
+            onClick={() => onQuestionSelected(question, category.title)}
+          />
+        ))}
+      </Box>
     </Box>
   );
 }

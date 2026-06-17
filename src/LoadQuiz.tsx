@@ -77,9 +77,9 @@ export default function LoadQuiz(props:{quizKey:string, questionBank: QuizData})
   const categories = props.questionBank?.categories ?? (quizData.categories as Category[]);
 
   return (
-    <Box sx={{ minHeight: "100vh", py: 3 }}>
-      <Box sx={{ textAlign: "center", mb: 3 }}>
-        <Typography variant="h3" component="h1" sx={{ fontWeight: 700, color: "white", backgroundColor: "primary.main", display: "block", px: 0, py: 1, borderRadius: 2  }}>
+    <Box sx={{ display: "flex", flexDirection: "column", height: "100vh", py: 1.5, px: 2 }}>
+      <Box sx={{ textAlign: "center", mb: 1.5, flexShrink: 0 }}>
+        <Typography variant="h3" component="h1" sx={{ fontWeight: 700, color: "white", backgroundColor: "primary.main", display: "block", px: 0, py: 0.8, borderRadius: 2, fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem" }  }}>
          Night
         </Typography>
         <Button
@@ -92,11 +92,13 @@ export default function LoadQuiz(props:{quizKey:string, questionBank: QuizData})
         </Button>
       </Box>
 
-      <QuizBoard
-        categories={categories}
-        answeredQuestionIds={answeredQuestionIds}
-        onQuestionSelected={handleQuestionSelected}
-      />
+      <Box sx={{ flex: 1, minHeight: 0 }}>
+          <QuizBoard
+          categories={categories}
+          answeredQuestionIds={answeredQuestionIds}
+          onQuestionSelected={handleQuestionSelected}
+        />
+      </Box>
 
       {selectedQuestion && (
         <QuestionModal

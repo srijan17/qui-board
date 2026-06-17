@@ -24,16 +24,16 @@ export default function QuizBoard({ categories, answeredQuestionIds, onQuestionS
     <Box
       sx={{
         display: "flex",
-        overflowX: "auto",
-        gap: 1.5,
-        px: 2,
-        py: 1.5,
-        pb: 2,
-        justifyContent: { xs: "flex-start", md: "center" },
+        width: "100%",
+        height: "100%",
+        gap: { xs: 0.8, sm: 1, md: 1.2 },
+        px: { xs: 0.8, sm: 1, md: 1.2 },
+        py: { xs: 0.8, sm: 1 },
         bgcolor: "rgba(255,255,255,0.55)",
         borderRadius: 3,
         border: "2px dashed",
         borderColor: "rgba(94,96,206,0.35)",
+        boxSizing: "border-box",
       }}
     >
       {categories.map((category) => (
